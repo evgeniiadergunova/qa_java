@@ -4,17 +4,17 @@ import java.util.List;
 
 public class Animal {
 
-    public List<String> getFood(String animalKind) throws Exception {
-        if ("Травоядное".equals(animalKind)) {
-            return List.of("Трава", "Различные растения");
-        } else if ("Хищник".equals(animalKind)) {
-            return List.of("Животные", "Птицы", "Рыба");
+    public List<Food> getFood(AnimalKind animal) throws Exception {
+        if (animal == AnimalKind.Herbivore) {
+            return List.of(Food.Grass, Food.VariousPlants);
+        } else if (animal == AnimalKind.Predator) {
+            return List.of(Food.Animals, Food.Birds, Food.Fish);
         } else {
             throw new Exception("Неизвестный вид животного, используйте значение Травоядное или Хищник");
         }
     }
 
-    public String getFamily() {
-        return "Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи";
+    public Family getFamily() throws Exception {
+        throw new UnsupportedOperationException("Необходимо возвращать семейство");
     }
 }
